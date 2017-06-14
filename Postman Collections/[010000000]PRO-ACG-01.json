@@ -233,7 +233,7 @@
                   "        }",
                   "    }",
                   "}",
-                  "postman.setNextRequest(\"[00002]Delete data\");",
+                  "postman.setNextRequest(\"[011102400]Drop file FGA\");",
                   ""
                 ]
               }
