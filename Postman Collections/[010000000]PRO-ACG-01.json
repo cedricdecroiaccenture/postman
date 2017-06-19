@@ -2454,7 +2454,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"alias\":\"SCALA_PCE\",\"fileName\":\"H20170320_PCE_2017032010342_CHR02_SCALA_4-1F.xml.gz\",\"wait\":\"true\",\"waitTimeout\":\"10\"}"
+              "raw": "{\"alias\":\"SCALA_PCE\",\"fileName\":\"H20170320_PCE_20170320103420_CHR02_SCALA_5-1F.xml.gz\",\"wait\":\"true\",\"waitTimeout\":\"10\"}"
             },
             "description": ""
           },
@@ -2539,7 +2539,7 @@
     },
     {
       "_postman_id": "9d3800de-425e-5dd0-ebf9-2288a5fafc2d",
-      "name": "[010100200PCE]PRO_ACG_01_PCE_ORC_002_SGPCETVPEC - To do",
+      "name": "[010100200PCE]PRO_ACG_01_PCE_ORC_002_SGPCETVPEC",
       "description": "o\t0 - ko Case - file stops here\r\no\t1 - ok Case - file go through next step",
       "item": [
         {
