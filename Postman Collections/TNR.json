@@ -308,36 +308,44 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "var jsonData = JSON.parse(responseBody);",
-                  "var sqlResult = jsonData.sqlResult;",
-                  "for(var i= 0; i < sqlResult.length; i++)",
-                  "{",
-                  "    switch (sqlResult[i].requestId) {",
-                  "        case \"DeletePointData\":",
-                  "            tests[\"Delete Point Data\"] = true;",
-                  "            break;",
-                  "        case \"DeleteAcqPceData\":",
-                  "            tests[\"Delete Acq_Pce Data\"] = true;",
-                  "            break;",
-                  "        case \"DeletePubPointData\":",
-                  "            tests[\"Delete Pub_Point Data\"] = true;",
-                  "            break;",
-                  "        case \"DeleteEtrMeteringDataData\":",
-                  "            tests[\"Delete Etr_Metering_Data Data\"] = true;",
-                  "            break;",
-                  "        case \"DeleteAlerte\":",
-                  "            tests[\"Delete Alerte\"] = true;",
-                  "            break;",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "if (tests[\"Status code is 200\"]){",
+                  "    var jsonData = JSON.parse(responseBody);",
+                  "    var sqlResult = jsonData.sqlResult;",
+                  "    for(var i= 0; i < sqlResult.length; i++)",
+                  "    {",
+                  "        switch (sqlResult[i].requestId) {",
+                  "            case \"DeletePointData\":",
+                  "                tests[\"Delete Point Data\"] = true;",
+                  "                break;",
+                  "            case \"DeleteAcqPceData\":",
+                  "                tests[\"Delete Acq_Pce Data\"] = true;",
+                  "                break;",
+                  "            case \"DeletePubPointData\":",
+                  "                tests[\"Delete Pub_Point Data\"] = true;",
+                  "                break;",
+                  "            case \"DeleteEtrMeteringDataData\":",
+                  "                tests[\"Delete Etr_Metering_Data Data\"] = true;",
+                  "                break;",
+                  "            case \"DeleteAlerte\":",
+                  "                tests[\"Delete Alerte\"] = true;",
+                  "                break;",
+                  "        }",
+                  "    }",
+                  "    if (tests[\"Delete Point Data\"] && tests[\"Delete Acq_Pce Data\"] && tests[\"Delete Pub_Point Data\"] && tests[\"Delete Alerte\"]){",
+                  "        tests[\"Delete data Sum up\"] = true; ",
+                  "        postman.setNextRequest(\"[00002]Drop file PCE\");",
+                  "    }",
+                  "    else {",
+                  "       tests[\"Delete data\"] = fase; ",
+                  "       //postman.setNextRequest(null);",
                   "    }",
                   "}",
-                  "if (tests[\"Delete Point Data\"] && tests[\"Delete Acq_Pce Data\"] && tests[\"Delete Pub_Point Data\"] && tests[\"Delete Alerte\"]){",
-                  "    tests[\"Delete data Sum up\"] = true; ",
-                  "    postman.setNextRequest(\"[00002]Drop file PCE\");",
+                  "else{",
+                  "    postman.setNextRequest(null);",
                   "}",
-                  "else {",
-                  "   tests[\"Delete data\"] = fase; ",
-                  "   //postman.setNextRequest(null);",
-                  "}"
+                  "",
+                  ""
                 ]
               }
             },
@@ -1245,7 +1253,7 @@
       "item": [
         {
           "_postman_id": "de5d98d9-3a3b-af45-7283-3d568653d231",
-          "name": "[00004]Check data copy",
+          "name": "[00005]Check data",
           "event": [
             {
               "listen": "test",
@@ -1338,6 +1346,66 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "148b4d25-0166-128a-3e4f-c61d984edc72",
+          "name": "[00005]Drop file PCE",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "if (tests[\"Status code is 200\"]){",
+                  "    var jsonData = JSON.parse(responseBody);",
+                  "    postman.setEnvironmentVariable(\"PRO_ACG_05_PCE_TNR_SGPCETVPEC_processid\",jsonData.processId);",
+                  "    postman.setEnvironmentVariable(\"PRO_ACG_05_PCE_TNR_SGPCETVPEC_sourceProcessId\",jsonData.sourceProcessId);",
+                  "    ",
+                  "    if (jsonData.statusProcess === \"2\"){",
+                  "        tests[\"Check drop file PCE\"] = false;",
+                  "        //postman.setNextRequest(null);",
+                  "    }",
+                  "    else if (jsonData.statusProcess === \"4\"){",
+                  "       tests[\"Check drop file PCE\"] = true; ",
+                  "       //postman.setNextRequest(\"[00004]Check process cal end\");",
+                  "    }",
+                  "    else {",
+                  "        tests[\"Check drop file PCE\"] = false;",
+                  "        //postman.setNextRequest(null);  ",
+                  "    }",
+                  "}",
+                  "else{",
+                  "    postman.setNextRequest(null);",
+                  "}",
+                  "",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "http://{{ipPort}}/rest/ETR_FRMK_ADMIN/ws/tests/files/",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U=",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"alias\":\"PRECO\",\"fileName\":\"PREV_PCE_20170413_20170414_130027.csv\",\"wait\":\"true\",\"waitTimeout\":\"90\"}"
+            },
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
@@ -1407,66 +1475,6 @@
           "response": []
         }
       ]
-    },
-    {
-      "_postman_id": "148b4d25-0166-128a-3e4f-c61d984edc72",
-      "name": "[00005]Drop file PCE",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "tests[\"Status code is 200\"] = responseCode.code === 200;",
-              "if (tests[\"Status code is 200\"]){",
-              "    var jsonData = JSON.parse(responseBody);",
-              "    postman.setEnvironmentVariable(\"PRO_ACG_05_PCE_TNR_SGPCETVPEC_processid\",jsonData.processId);",
-              "    postman.setEnvironmentVariable(\"PRO_ACG_05_PCE_TNR_SGPCETVPEC_sourceProcessId\",jsonData.sourceProcessId);",
-              "    ",
-              "    if (jsonData.statusProcess === \"2\"){",
-              "        tests[\"Check drop file PCE\"] = false;",
-              "        //postman.setNextRequest(null);",
-              "    }",
-              "    else if (jsonData.statusProcess === \"4\"){",
-              "       tests[\"Check drop file PCE\"] = true; ",
-              "       //postman.setNextRequest(\"[00004]Check process cal end\");",
-              "    }",
-              "    else {",
-              "        tests[\"Check drop file PCE\"] = false;",
-              "        //postman.setNextRequest(null);  ",
-              "    }",
-              "}",
-              "else{",
-              "    postman.setNextRequest(null);",
-              "}",
-              "",
-              ""
-            ]
-          }
-        }
-      ],
-      "request": {
-        "url": "http://{{ipPort}}/rest/ETR_FRMK_ADMIN/ws/tests/files/",
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U=",
-            "description": ""
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json",
-            "description": ""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\"alias\":\"PRECO\",\"fileName\":\"PREV_PCE_20170413_20170414_130027.csv\",\"wait\":\"true\",\"waitTimeout\":\"90\"}"
-        },
-        "description": ""
-      },
-      "response": []
     }
   ]
 }
