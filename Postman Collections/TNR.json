@@ -1458,7 +1458,7 @@
       "item": [
         {
           "_postman_id": "57972383-a145-fcdf-ebe4-6900afb72040",
-          "name": "[00011]Delete data copy",
+          "name": "[00010]Delete data",
           "event": [
             {
               "listen": "test",
