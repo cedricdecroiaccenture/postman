@@ -1533,8 +1533,8 @@
                   "tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "if (tests[\"Status code is 200\"]){",
                   "    var jsonData = JSON.parse(responseBody);",
-                  "    postman.setEnvironmentVariable(\"PRO_ARF_01_PCE_TNR_PCEVER15_processid\",jsonData.processId);",
-                  "    postman.setEnvironmentVariable(\"PRO_ARF_01_PCE_TNR_PCEVER15_sourceProcessId\",jsonData.sourceProcessId);",
+                  "    postman.setEnvironmentVariable(\"PRO_ARF_01_PCE_TNR_SGGUR1133A_processid\",jsonData.processId);",
+                  "    postman.setEnvironmentVariable(\"PRO_ARF_01_PCE_TNR_SGGUR1133A_sourceProcessId\",jsonData.sourceProcessId);",
                   "    ",
                   "   //Waiting that the status,processid and source_processid are given for this type of file. So we are direcly moving to the next step.",
                   "   /*if (jsonData.statusProcess === \"2\"){",
@@ -1646,7 +1646,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{  \r\n   \"sqlRequest\":[  \r\n            {  \r\n         \"requestId\":\"CheckStatutOrcProcessusOld\",\r\n         \"requestContent\":\"select id_statut_processus from orc_processus where date_lancement_processus>= (sysdate - 1/24/6) and code_technique_processus='PRO_ARF_01' order by date_lancement_processus desc fetch first 1 rows only\"\r\n      }\r\n   ]\r\n}"
+              "raw": "{  \r\n   \"sqlRequest\":[  \r\n            {  \r\n         \"requestId\":\"CheckStatutOrcProcessusOld\",\r\n         \"requestContent\":\"select id_statut_processus from orc_processus where date_lancement_processus>= (sysdate - 1/24/6) and code_technique_processus='PRO_ARF_01' order by date_lancement_processus desc fetch first 1 rows only\"\r\n      },\r\n\t\t{  \r\n        \t\"requestId\":\"CheckGrpCalculCreation\",\r\n        \t\"requestContent\":\"select count(*) as COUNT from GRP_CALCUL where IDGRP_CALCUL='513TEST90' and lstime>= (sysdate - 1/24/6)\"\r\n\t\t}\r\n   ]\r\n   ]\r\n}"
             },
             "description": ""
           },
