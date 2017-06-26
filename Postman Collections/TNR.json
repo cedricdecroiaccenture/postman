@@ -901,7 +901,7 @@
                   "",
                   "}",
                   "else{",
-                  "    postman.setNextRequest(null);",
+                  "    postman.setNextRequest(\"[00005]Delete data\");",
                   "}",
                   "",
                   ""
@@ -1607,7 +1607,7 @@
                   "                case \"CheckGrpCalculCreation\":",
                   "                     tests[\"Check status in GRP_CALCUL Creation\"] = sqlResult[i].results[0].COUNT == \"1\";",
                   "                break;",
-                  "                                } ",
+                  "                } ",
                   "            }",
                   "        } ",
                   "    }",
