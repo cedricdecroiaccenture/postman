@@ -898,10 +898,10 @@
                   "            }",
                   "        } ",
                   "    }",
-                  "",
+                  "    postman.setNextRequest(\"[00005]Delete data\");",
                   "}",
                   "else{",
-                  "    postman.setNextRequest(\"[00005]Delete data\");",
+                  "    postman.setNextRequest(null);",
                   "}",
                   "",
                   ""
