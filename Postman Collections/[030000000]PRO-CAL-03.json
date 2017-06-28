@@ -528,7 +528,7 @@
                   "            }",
                   "        }",
                   "    }",
-                  "    postman.setNextRequest(\"[010100201FGA]Delete data\");",
+                  "    postman.setNextRequest(null);",
                   "}",
                   "else{",
                   "    postman.setNextRequest(null);",
