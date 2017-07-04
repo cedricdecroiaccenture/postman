@@ -1192,7 +1192,7 @@
         },
         {
           "_postman_id": "4ab30d96-447a-b8ef-a41f-c40fcd5b7b66",
-          "name": "[030301500FGA]Check process cal end copy",
+          "name": "[030301500FGA]Check process cal end PRO-CAL-03",
           "event": [
             {
               "listen": "test",
