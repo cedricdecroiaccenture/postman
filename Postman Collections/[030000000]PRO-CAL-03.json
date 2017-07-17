@@ -3051,7 +3051,7 @@
         },
         {
           "_postman_id": "9736b06b-391e-44e0-aa9e-60010bd0fa6b",
-          "name": "[030301600PCE]Get Processid",
+          "name": "[030301700PCE]Get Processid",
           "event": [
             {
               "listen": "test",
@@ -3068,13 +3068,13 @@
                   "            if(sqlResult[i].results !== null){",
                   "                switch (sqlResult[i].requestId) {",
                   "                case \"GetSourceProcessid\":",
-                  "                    postman.setEnvironmentVariable(\"[030301600PCE]PRO_CAL_03_PCE_ORC_015_SGPCETVPEC\",sqlResult[i].results[0].SOURCE_PROCESSID);",
+                  "                    postman.setEnvironmentVariable(\"[030301700PCE]PRO_CAL_03_PCE_ORC_017_SGPCETVPEC\",sqlResult[i].results[0].SOURCE_PROCESSID);",
                   "                    break;",
                   "                }",
                   "            }",
                   "        }",
                   "    }",
-                  "    postman.setNextRequest(\"[030301600PCE]Check process cal end PRO-CAL-03\");",
+                  "    postman.setNextRequest(\"[030301700PCE]Check process cal end PRO-CAL-03\");",
                   "}",
                   "else{",
                   "    postman.setNextRequest(null);",
