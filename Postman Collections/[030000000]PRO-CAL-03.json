@@ -2296,7 +2296,7 @@
                   "            if(sqlResult[i].results !== null){",
                   "                switch (sqlResult[i].requestId) {",
                   "                case \"GetSourceProcessid\":",
-                  "                    postman.setEnvironmentVariable(\"[030301600PCE]PRO_CAL_03_PCE_ORC_015_SGPCETVPEC\",sqlResult[i].results[0].SOURCE_PROCESSID);",
+                  "                    postman.setEnvironmentVariable(\"[030301600PCE]PRO_CAL_03_PCE_ORC_016_SGPCETVPEC\",sqlResult[i].results[0].SOURCE_PROCESSID);",
                   "                    break;",
                   "                }",
                   "            }",
@@ -3068,13 +3068,13 @@
                   "            if(sqlResult[i].results !== null){",
                   "                switch (sqlResult[i].requestId) {",
                   "                case \"GetSourceProcessid\":",
-                  "                    postman.setEnvironmentVariable(\"[030301600PCE]PRO_CAL_03_PCE_ORC_015_SGPCETVPEC\",sqlResult[i].results[0].SOURCE_PROCESSID);",
+                  "                    postman.setEnvironmentVariable(\"[030301700PCE]PRO_CAL_03_PCE_ORC_017_SGPCETVPEC\",sqlResult[i].results[0].SOURCE_PROCESSID);",
                   "                    break;",
                   "                }",
                   "            }",
                   "        }",
                   "    }",
-                  "    postman.setNextRequest(\"[030301600PCE]Check process cal end PRO-CAL-03\");",
+                  "    postman.setNextRequest(\"[030301700PCE]Check process cal end PRO-CAL-03\");",
                   "}",
                   "else{",
                   "    postman.setNextRequest(null);",
@@ -3116,7 +3116,7 @@
         },
         {
           "_postman_id": "c66b46bc-c3f2-d642-1c4b-2e60bb5b7366",
-          "name": "[030301600PCE]Check process cal end PRO-CAL-03",
+          "name": "[030301700PCE]Check process cal end PRO-CAL-03",
           "event": [
             {
               "listen": "test",
