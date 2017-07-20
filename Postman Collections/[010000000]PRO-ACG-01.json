@@ -7684,8 +7684,8 @@
           "response": []
         },
         {
-          "_postman_id": "e2175d1b-8ace-4651-01b8-f938fd182cb7",
-          "name": "[011000703PCE]Delete data copy copy",
+          "_postman_id": "55824b2e-ec0d-a245-9e57-a8a469ad0019",
+          "name": "[011000703PCE]Delete data copy",
           "event": [
             {
               "listen": "test",
