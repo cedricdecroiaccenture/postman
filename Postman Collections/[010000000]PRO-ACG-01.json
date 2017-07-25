@@ -7750,7 +7750,7 @@
         },
         {
           "_postman_id": "be841777-709e-a1cf-0c43-e6ad3ada847f",
-          "name": "[011000702FGA]Delete data",
+          "name": "[011000707FGA]Delete data",
           "event": [
             {
               "listen": "test",
