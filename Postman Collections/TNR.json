@@ -2325,7 +2325,7 @@
                       "       postman.setNextRequest(\"[00010]Check data\");",
                       "    }",
                       "    else {",
-                      "        tests[\"Check process cal end\"] = true;",
+                      "        tests[\"Check process cal end\"] = false;",
                       "        postman.setNextRequest(\"[00010]Check data\");  ",
                       "    }",
                       "}",
@@ -2350,7 +2350,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\"processCode\":\"PRO_CAL_01\",\"processId\":\"{{PRO_ARF_01_PCE_TNR_SGGUR1133A_sourceProcessId}}\",\"waitTimeout\":\"90\"}"
+                  "raw": "{\"processCode\":\"PRO_CAL_02\",\"processId\":\"{{PRO_ACG_01_FGA_TNR_SGTUH97A_sourceProcessId}}\",\"waitTimeout\":\"90\"}"
                 },
                 "description": ""
               },
