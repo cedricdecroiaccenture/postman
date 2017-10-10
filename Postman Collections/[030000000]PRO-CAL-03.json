@@ -859,7 +859,7 @@
                   "       postman.setNextRequest(\"[030301500FGA]Drop file FGA\");",
                   "    }",
                   "    else {",
-                  "        tests[\"Check drop file FGA\"] = false;",
+                  "        tests[\"Check drop file PCE\"] = false;",
                   "        //postman.setNextRequest(null);",
                   "}",
                   "}",
